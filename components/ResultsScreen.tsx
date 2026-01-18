@@ -21,6 +21,13 @@ const ResultsScreen: React.FC<Props> = ({ totals, state }) => {
 
   useEffect(() => {
     const getAdvice = async () => {
+      // Check if API key exists in environment
+      if (!process.env.API_KEY) {
+        setAiAdvice("AI Advice is disabled. Please set your API_KEY in Netlify settings.");
+        setLoading(false);
+        return;
+      }
+
       try {
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         const response = await ai.models.generateContent({
@@ -39,6 +46,7 @@ const ResultsScreen: React.FC<Props> = ({ totals, state }) => {
         });
         setAiAdvice(response.text || "Plan behtareen hai! Bas savings par tawajjo dein.");
       } catch (e) {
+        console.error("AI Advice Error:", e);
         setAiAdvice("AI Consultant is taking a tea break. Your plan looks solid though! ☕");
       } finally {
         setLoading(false);
