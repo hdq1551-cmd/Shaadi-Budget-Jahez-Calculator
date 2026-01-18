@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaadi Planner Pro</title>
+    <meta name="theme-color" content="#720e0e">
+    <link rel="manifest" href="manifest.json">
+    <title>Shaadi Budget & Jahez</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
@@ -19,6 +21,7 @@
             background-color: var(--bg);
             color: #2d3436;
             transition: all 0.5s ease;
+            -webkit-tap-highlight-color: transparent;
         }
         .playfair { font-family: 'Playfair Display', serif; }
         .handwritten { font-family: 'Great Vibes', cursive; }
@@ -30,15 +33,9 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
-        .mandala-bg {
-            background-image: url('https://www.transparenttextures.com/patterns/p6.png');
-            opacity: 0.05;
-        }
         /* Width overrides for custom buttons */
         .w-13 { width: 3.25rem; }
         .h-13 { height: 3.25rem; }
-        .w-15 { width: 3.75rem; }
-        .h-15 { height: 3.75rem; }
         .w-18 { width: 4.5rem; }
         .h-18 { height: 4.5rem; }
 
@@ -46,12 +43,10 @@
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
         
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
-        .floating { animation: floating 3s ease-in-out infinite; }
         
         .premium-shadow {
             box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.2);
@@ -72,5 +67,12 @@
 </head>
 <body>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
 </body>
 </html>
