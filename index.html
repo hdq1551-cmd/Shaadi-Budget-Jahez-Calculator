@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaadi Planner Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #720e0e;
+            --primary-light: #a52a2a;
+            --accent: #c5a059;
+            --bg: #fdfaf6;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: #2d3436;
+            transition: all 0.5s ease;
+        }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .handwritten { font-family: 'Great Vibes', cursive; }
+        .desi-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+        .glass-dock {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .mandala-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/p6.png');
+            opacity: 0.05;
+        }
+        /* Width overrides for custom buttons */
+        .w-13 { width: 3.25rem; }
+        .h-13 { height: 3.25rem; }
+        .w-15 { width: 3.75rem; }
+        .h-15 { height: 3.75rem; }
+        .w-18 { width: 4.5rem; }
+        .h-18 { height: 4.5rem; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        
+        .premium-shadow {
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
