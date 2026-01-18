@@ -33,13 +33,11 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
-        /* Width overrides for custom buttons */
         .w-13 { width: 3.25rem; }
         .h-13 { height: 3.25rem; }
         .w-18 { width: 4.5rem; }
         .h-18 { height: 4.5rem; }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
         
@@ -67,6 +65,8 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- Entry point script -->
+    <script type="module" src="./index.tsx"></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
